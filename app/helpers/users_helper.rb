@@ -76,6 +76,21 @@ module UsersHelper
   end
 
   #
+  # List the current user's name or link to the login page
+  # (using link_to_login_with_IP).
+  #
+  def list_current_user(options={})
+    if current_user
+      current_user.login
+    else
+      content_text = options.delete(:content_text) || 'not signed in'
+      # kill ignored options from link_to_user
+      [:content_method, :title_method].each{|opt| options.delete(opt)} 
+      link_to_login_with_IP content_text, options
+    end
+  end
+
+  #
   # Link to the current user's page (using link_to_user) or to the login page
   # (using link_to_login_with_IP).
   #

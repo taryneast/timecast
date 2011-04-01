@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   include Authorization::StatefulRoles
   set_table_name 'users'
 
+  has_many :challenges
+
   validates :login, :presence   => true,
                     :uniqueness => true,
                     :length     => { :within => 3..40 },
