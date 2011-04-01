@@ -19,10 +19,16 @@
     <%= f.label :description %><br />
     <%= f.text_field :description %>
   </div>
+  
+<% if @challenge.estimate.blank? %>  
   <div class="field">
     <%= f.label :estimate %><br />
     <%= f.text_field :estimate %>
   </div>
+<% else %>
+  <%= @challenge.estimate %>
+<% end %>
+
 <% if @challenge.started_at.blank? %>
   <div class="field">
     <%= f.label :started_at %><br />
