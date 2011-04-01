@@ -1,4 +1,7 @@
 class Challenge < ActiveRecord::Base
+  belongs_to :user
+
+  named_scope :unassigned, :conditions => {:user_id => nil}
 
   ############
   # validations

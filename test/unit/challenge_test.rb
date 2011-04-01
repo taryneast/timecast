@@ -2,6 +2,8 @@ require 'test_helper'
 
 class ChallengeTest < ActiveSupport::TestCase
   context "validations" do
+    should_belong_to :user
+
     should_validate_presence_of :name
     should_validate_presence_of :estimate
     should_validate_numericality_of :estimate
