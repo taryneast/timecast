@@ -26,6 +26,7 @@
     <%= f.text_field :estimate %>
   </div>
 <% else %>
+  <%= f.label :estimate %><br />
   <%= @challenge.estimate %>
 <% end %>
 
