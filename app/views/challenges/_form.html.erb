@@ -23,10 +23,12 @@
     <%= f.label :estimate %><br />
     <%= f.text_field :estimate %>
   </div>
+<% if @challenge.started_at.blank? %>
   <div class="field">
     <%= f.label :started_at %><br />
     <%= f.datetime_select :started_at %>
   </div>
+<% else %>
   <div class="field">
     <%= f.label :stopped_at %><br />
     <%= f.datetime_select :stopped_at %>
@@ -35,6 +37,7 @@
     <%= f.label :completedin %><br />
     <%= f.text_field :completedin %>
   </div>
+<% end %>
   <div class="field">
     <%= f.label :aborted_at %><br />
     <%= f.datetime_select :aborted_at %>
