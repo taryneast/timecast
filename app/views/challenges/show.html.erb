@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<% if !@challenge.done? %>
+
+  <div>BIG clock goes here!!!</div>
+  <%= render :partial => 'stop_abort_buttons' %>
+<% end %>
+
 <p>
   <b>Name:</b>
   <%= @challenge.name %>

@@ -35,7 +35,7 @@
   </div>
 <% end %>
 
-<% if @challenge.started_at.blank? %>
+<% if !@challenge.started? %>
   <div class="field">
     <%= f.label :started_at %><br />
     <%= f.datetime_select :started_at %>
@@ -55,9 +55,4 @@
   </div>
 <% end %>
 
-<% if @challenge.started_at.present? %>
-	<%= form_for(@challenge) do |f| %>
-		<%= f.hidden_field(:aborted_at, :value => 'now') %>
-	    <%= f.submit 'Abort now!' %>
-	<% end %>
-<% end %>
+<%= render :partial => 'stop_abort_buttons' if @challenge.started? && !@challenge.done? %>

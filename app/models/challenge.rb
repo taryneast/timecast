@@ -33,4 +33,17 @@ class Challenge < ActiveRecord::Base
     self.stopped_at = Time.now if self.stopped_at.present? && self.stopped_at == 'now'
   end
 
+  def started?
+    self.started_at.present?
+  end
+  def stopped?
+    self.stopped_at.present?
+  end
+  def aborted?
+    self.aborted_at.present?
+  end
+
+  def done?
+    started? && (stopped? || aborted?)
+  end
 end
