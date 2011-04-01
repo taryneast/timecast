@@ -3,6 +3,7 @@ class Challenge < ActiveRecord::Base
   ############
   # validations
   validates_presence_of :name
+  validates_presence_of :estimate
 
   validates_numericality_of :estimate, :greater_than_or_equal_to => 0, :allow_nil => true, :only_integer => true
   validates_numericality_of :completedin, :greater_than_or_equal_to => 0, :allow_nil => true, :only_integer => true
@@ -20,4 +21,3 @@ class Challenge < ActiveRecord::Base
 
 
 end
-# non-negative durations
