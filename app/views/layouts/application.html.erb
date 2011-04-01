@@ -28,7 +28,7 @@
 	    max: 60,
 	    value: 0
 	  }).bind( "slidechange", function(event, ui) {
-	    $('challenge_estimate').val(getEstimateTime()) 
+	    $('#challenge_estimate').val(getEstimateTime()) 
 	  });
 	  $('#hourSlider').slider({
 	    orientation: 'horizontal',
@@ -36,7 +36,7 @@
 	    max: 24,
 	    value: 0
 	  }).bind( "slidechange", function(event, ui) {
-	    $('challenge_estimate').val(getEstimateTime()) 
+	    $('#challenge_estimate').val(getEstimateTime()) 
 	  });
 	  $('#daySlider').slider({
 	    orientation: 'horizontal',
@@ -44,7 +44,7 @@
 	    max: 365,
 	    value: 0
 	  }).bind( "slidechange", function(event, ui) {
-	    $('challenge_estimate').val(getEstimateTime()) 
+	    $('#challenge_estimate').val(getEstimateTime()) 
 	  }); 
   });
 
