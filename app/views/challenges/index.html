@@ -41,46 +41,10 @@
 
     </header>
     <div id="main" role="main">
-		<h1>Listing challenges</h1>
 
-		<table>
-		  <tr>
-			<th>Name</th>
-			<th>Description</th>
-			<th>Estimate</th>
-			<th>Started at</th>
-			<th>Stopped at</th>
-			<th>Completedin</th>
-			<th>User</th>
-			<th>Aborted at</th>
-			<th></th>
-			<th></th>
-			<th></th>
-		  </tr>
-
-		<% @challenges.each do |challenge| %>
-		  <tr>
-			<td><%= challenge.name %></td>
-			<td><%= challenge.description %></td>
-			<td><%= challenge.estimate %></td>
-			<td><%= challenge.started_at %></td>
-			<td><%= challenge.stopped_at %></td>
-			<td><%= challenge.completedin %></td>
-			<td><%= challenge.user_id %></td>
-			<td><%= challenge.aborted_at %></td>
-			<td><%= link_to 'Show', challenge %></td>
-			<td><%= link_to 'Edit', edit_challenge_path(challenge) %></td>
-			<td><%= link_to 'Destroy', challenge, :confirm => 'Are you sure?', :method => :delete %></td>
-		  </tr>
-		<% end %>
-		</table>
-
-		<br />
-
-		<%= link_to 'New Challenge', new_challenge_path %>
     </div>
     <footer>
-		
+
     </footer>
   </div> <!--! end of #container -->
 
