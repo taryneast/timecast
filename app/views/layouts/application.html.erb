@@ -16,9 +16,11 @@
 
   function getEstimateTime()
   {
-    val = $('#minSlider').val();
-    val += 60 * $('#hourSlider').val();
-    val += 24*60 * $('#daySlider').val();
+    val = parseInt( $('#minSlider').slider("value"));
+    val = 60 * parseInt($('#hourSlider').slider("value")) + val;
+    val = 24*60 * parseInt($('#daySlider').slider("value")) +val;
+    return val
+
 
   }
   $(function () { 
