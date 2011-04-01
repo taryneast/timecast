@@ -8,7 +8,7 @@ body, p, ol, ul, td {
 
 input#challenge_submit
 {
-  background:url(images/go.png)
+  background:url(/images/go.png)
 }
 
 pre {
