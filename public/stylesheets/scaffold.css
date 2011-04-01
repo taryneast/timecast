@@ -8,8 +8,8 @@ body, p, ol, ul, td {
 
 input#challenge_submit
 {
-  background:url(/images/go.png)
-  width: 127px  /*width for you actual button*/
+  background:url(/images/go.png);
+  width: 127px;  /*width for you actual button*/
   height: 92px; /*height for you actual button*/
   border: none;
 
