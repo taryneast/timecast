@@ -53,3 +53,10 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<%= form_for(@challenge) do |f| %>
+	<% if @challenge.started_at.present? %>
+		<%= f.hidden_field(:aborted_at, :value => Time.now) %>
+	    <%= f.submit 'Abort' %>
+	<% end %>
+<% end %>
