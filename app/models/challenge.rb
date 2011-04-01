@@ -47,4 +47,10 @@ class Challenge < ActiveRecord::Base
   end
 
   
+  def status
+    return "Aborted" if aborted?
+    return "Completed" if done?
+    return "Started" if started?
+    "New"
+  end
 end
