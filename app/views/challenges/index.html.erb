@@ -2,29 +2,31 @@
 
 <h1>Listing challenges</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Estimate</th>
-    <th>Started at</th>
-    <th>Stopped at</th>
-    <th>Completedin</th>
-    <th colspan="3">Actions</th>
-  </tr>
+<%if @challenges.empty? %>
+	<table>
+	  <tr>
+		<th>Name</th>
+		<th>Estimate</th>
+		<th>Started at</th>
+		<th>Stopped at</th>
+		<th>Completedin</th>
+		<th colspan="3">Actions</th>
+	  </tr>
 
-<% @challenges.each do |challenge| %>
-  <tr>
-    <td><%= challenge.name %></td>
-    <td><%= challenge.estimate %></td>
-    <td><%= challenge.started_at %></td>
-    <td><%= challenge.stopped_at %></td>
-    <td><%= challenge.completedin %></td>
-    <td><%= link_to 'Show', challenge %></td>
-    <td><%= link_to 'Edit', edit_challenge_path(challenge) %></td>
-    <td><%= link_to 'Destroy', challenge, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+	<% @challenges.each do |challenge| %>
+	  <tr>
+		<td><%= challenge.name %></td>
+		<td><%= challenge.estimate %></td>
+		<td><%= challenge.started_at %></td>
+		<td><%= challenge.stopped_at %></td>
+		<td><%= challenge.completedin %></td>
+		<td><%= link_to 'Show', challenge %></td>
+		<td><%= link_to 'Edit', edit_challenge_path(challenge) %></td>
+		<td><%= link_to 'Destroy', challenge, :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
 <% end %>
-</table>
 
 <br />
 
