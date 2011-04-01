@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  description: MyString
+  estimate: 1
+  started_at: 2011-04-01 11:54:57
+  stopped_at: 2011-04-01 11:54:57
+  completedin: 1
+  user_id: 1
+  aborted_at: 2011-04-01 11:54:57
+
+two:
+  name: MyString
+  description: MyString
+  estimate: 1
+  started_at: 2011-04-01 11:54:57
+  stopped_at: 2011-04-01 11:54:57
+  completedin: 1
+  user_id: 1
+  aborted_at: 2011-04-01 11:54:57

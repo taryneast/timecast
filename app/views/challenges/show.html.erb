@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @challenge.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @challenge.description %>
+</p>
+
+<p>
+  <b>Estimate:</b>
+  <%= @challenge.estimate %>
+</p>
+
+<p>
+  <b>Started at:</b>
+  <%= @challenge.started_at %>
+</p>
+
+<p>
+  <b>Stopped at:</b>
+  <%= @challenge.stopped_at %>
+</p>
+
+<p>
+  <b>Completedin:</b>
+  <%= @challenge.completedin %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @challenge.user_id %>
+</p>
+
+<p>
+  <b>Aborted at:</b>
+  <%= @challenge.aborted_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_challenge_path(@challenge) %> |
+<%= link_to 'Back', challenges_path %>
