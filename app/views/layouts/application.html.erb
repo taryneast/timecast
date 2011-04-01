@@ -19,32 +19,33 @@
     val += 24*60 * $('#daySlider').val();
 
   }
-  $('#minSlider').slider({
-    orientation: 'horizontal',
-    min: 0,
-    max: 60,
-    value: 0
-  }).bind( "slidechange", function(event, ui) {
-    $('challenge_estimate').val(getEstimatetime()) 
+  $(function () { 
+	  $('#minSlider').slider({
+	    orientation: 'horizontal',
+	    min: 0,
+	    max: 60,
+	    value: 0
+	  }).bind( "slidechange", function(event, ui) {
+	    $('challenge_estimate').val(getEstimatetime()) 
+	  });
+	  $('#hourSlider').slider({
+	    orientation: 'horizontal',
+	    min: 0,
+	    max: 24,
+	    value: 0
+	  }).bind( "slidechange", function(event, ui) {
+	    $('challenge_estimate').val(getEstimatetime()) 
+	  });
+	  $('#daySlider').slider({
+	    orientation: 'horizontal',
+	    min: 0,
+	    max: 365,
+	    value: 0
+	  }).bind( "slidechange", function(event, ui) {
+	    $('challenge_estimate').val(getEstimatetime()) 
+	  }); 
   });
-  $('#hourSlider').slider({
-    orientation: 'horizontal',
-    min: 0,
-    max: 24,
-    value: 0
-  }).bind( "slidechange", function(event, ui) {
-    $('challenge_estimate').val(getEstimatetime()) 
-  });
-  $('#daySlider').slider({
-    orientation: 'horizontal',
-    min: 0,
-    max: 365,
-    value: 0
-  }).bind( "slidechange", function(event, ui) {
-    $('challenge_estimate').val(getEstimatetime()) 
-  }); 
 
-  $( ".selector" ));
   </script>
 </head>
 <body>
