@@ -67,6 +67,10 @@ class ChallengesController < ApplicationController
   # PUT /challenges/1
   # PUT /challenges/1.xml
   def update
+    # clean up date values that are to be set to 'now'
+    [:aborted_at,:started_at, :stopped_at].each do |datefield|
+       params[:challenge][datefield] = Time.now if params[:challenge][datefield].present? && params[:challenge][datefield] == 'now'
+    end
     respond_to do |format|
       if @challenge.update_attributes(params[:challenge])
         format.html { redirect_to(@challenge, :notice => 'Challenge was successfully updated.') }
