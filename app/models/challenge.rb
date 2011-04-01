@@ -3,6 +3,8 @@ class Challenge < ActiveRecord::Base
 
   named_scope :unassigned, :conditions => {:user_id => nil}
 
+  before_validation :set_now_dates_to_time_now
+
   ############
   # validations
   validates_presence_of :name
@@ -22,5 +24,11 @@ class Challenge < ActiveRecord::Base
     errors.add :stopped_at, "must be after started-at!" if started_at >= stopped_at
   end
 
+
+  ############
+  # date helpers
+  def set_now_dates_to_time_now
+    self.aborted_at = Time.now if self.aborted_at.present? && self.aborted_at == 'now'
+  end
 
 end
