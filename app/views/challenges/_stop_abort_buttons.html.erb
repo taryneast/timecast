@@ -1,0 +1,9 @@
+    <%= form_for(@challenge) do |f| %>
+            <%= f.hidden_field(:stopped_at, :value => 'now') %>
+        <%= f.submit 'Stop now!' %>
+    <% end %>
+
+    <%= form_for(@challenge) do |f| %>
+            <%= f.hidden_field(:aborted_at, :value => 'now') %>
+        <%= f.submit 'Abort now!' %>
+    <% end %>

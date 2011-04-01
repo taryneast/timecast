@@ -1,5 +1,24 @@
 <p id="notice"><%= notice %></p>
 
+<% if !@challenge.done? %>
+
+  <div>BIG clock goes here!!!</div>
+  <div>ETA: <%= @challenge.estimated_stop_date %> </div>
+  <%= render :partial => 'stop_abort_buttons' %>
+<% else %>
+  <div>Estimated stopping time was: <%= @challenge.estimated_stop_date %> </div>
+  <% unless @challenge.aborted? %>
+  <div>Your estimate was:
+    <% if @challenge.estimated_stop_date > @challenge.stopped_at %>
+      Short by <%= @challenge.estimated_stop_date - @challenge.stopped_at %>
+    <% else %>
+      Over by <%= @challenge.stopped_at - @challenge.estimated_stop_date %>
+    <% end %>
+    seconds
+  </div>
+  <% end %>
+<% end %>
+
 <p>
   <b>Name:</b>
   <%= @challenge.name %>

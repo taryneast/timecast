@@ -3,8 +3,6 @@ class Challenge < ActiveRecord::Base
 
   named_scope :unassigned, :conditions => {:user_id => nil}
 
-  before_validation :set_now_dates_to_time_now
-
   ############
   # validations
   validates_presence_of :name
@@ -27,8 +25,32 @@ class Challenge < ActiveRecord::Base
 
   ############
   # date helpers
-  def set_now_dates_to_time_now
-    self.aborted_at = Time.now if self.aborted_at.present? && self.aborted_at == 'now'
+  def started?
+    self.started_at.present?
+  end
+  def stopped?
+    self.stopped_at.present?
+  end
+  def aborted?
+    self.aborted_at.present?
   end
 
+  def done?
+    started? && (stopped? || aborted?)
+  end
+
+
+  #######
+  # Scoring-related helpers
+  def estimated_stop_date
+    (started_at || Time.now) + (estimate || 0).seconds
+  end
+
+  
+  def status
+    return "Aborted" if aborted?
+    return "Completed" if done?
+    return "Started" if started?
+    "New"
+  end
 end
