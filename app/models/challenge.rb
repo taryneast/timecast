@@ -29,6 +29,8 @@ class Challenge < ActiveRecord::Base
   # date helpers
   def set_now_dates_to_time_now
     self.aborted_at = Time.now if self.aborted_at.present? && self.aborted_at == 'now'
+    self.started_at = Time.now if self.started_at.present? && self.started_at == 'now'
+    self.stopped_at = Time.now if self.stopped_at.present? && self.stopped_at == 'now'
   end
 
 end
