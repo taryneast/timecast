@@ -1,4 +1,59 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
+<html>
+
+<head>
+  <title>Timecast</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+
+  <script>
+
+  function getEstimateTime()
+  {
+    val = $('#minSlider').val();
+    val += 60 * $('#hourSlider').val();
+    val += 24*60 * $('#daySlider').val();
+
+  }
+  $('#minSlider').slider({
+    orientation: 'horizontal',
+    min: 0,
+    max: 60,
+    value: 0
+  }).bind( "slidechange", function(event, ui) {
+    $('challenge_estimate').val(getEstimatetime()) 
+  });
+  $('#hourSlider').slider({
+    orientation: 'horizontal',
+    min: 0,
+    max: 24,
+    value: 0
+  }).bind( "slidechange", function(event, ui) {
+    $('challenge_estimate').val(getEstimatetime()) 
+  });
+  $('#daySlider').slider({
+    orientation: 'horizontal',
+    min: 0,
+    max: 365,
+    value: 0
+  }).bind( "slidechange", function(event, ui) {
+    $('challenge_estimate').val(getEstimatetime()) 
+  }); 
+
+  $( ".selector" ));
+  </script>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+=======
     <head>
       <%= stylesheet_link_tag :all %>
       <%= javascript_include_tag :defaults %>
@@ -10,4 +65,5 @@
     <body>
 		    <%= yield %>
     </body>
+>>>>>>> 11a808a5185b1f584f55be73d2affbdce54073d0
 </html>
