@@ -1,11 +1,14 @@
 class ChallengesController < ApplicationController
-  before_filter :login_required
   before_filter :find_challenge, :except => [:index, :new, :create]
 
   # GET /challenges
   # GET /challenges.xml
   def index
-    @challenges = current_user.challenges.all
+    if logged_in?
+      @challenges = current_user.challenges.all
+    else
+      @challenges = Challenge.unassigned.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,7 +19,11 @@ class ChallengesController < ApplicationController
   # GET /challenges/new
   # GET /challenges/new.xml
   def new
-    @challenge = current_user.challenges.new
+    if logged_in?
+      @challenge = current_user.challenges.new
+    else
+      @challenge = Challenge.unassigned.new
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -27,7 +34,11 @@ class ChallengesController < ApplicationController
   # POST /challenges
   # POST /challenges.xml
   def create
-    @challenge = current_user.challenges.new(params[:challenge])
+    if logged_in?
+      @challenge = current_user.challenges.new(params[:challenge])
+    else
+      @challenge = Challenge.unassigned.new(params[:challenge])
+    end
 
     respond_to do |format|
       if @challenge.save
@@ -82,6 +93,15 @@ class ChallengesController < ApplicationController
   private
 
   def find_challenge
-    @challenge = current_user.challenges.find_by_id(params[:id])
+    begin
+      if logged_in?
+        @challenge = current_user.challenges.find_by_id(params[:id])
+      else
+        @challenge = Challenge.unassigned.find(params[:id])
+      end
+    rescue ActiveRecord::RecordNotFound
+      flash[:error] = "Can't find that challenge!"
+      return redirect_to challenges_path
+    end
   end
 end
