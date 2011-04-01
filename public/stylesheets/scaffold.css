@@ -6,6 +6,11 @@ body, p, ol, ul, td {
   line-height: 18px;
 }
 
+input#challenge_submit
+{
+  background:url(images/go.png)
+}
+
 pre {
   background-color: #eee;
   padding: 10px;
